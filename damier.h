@@ -14,7 +14,10 @@ public :
 
     void print();
     void random(); //Permet d'ajouter de manière aléatoire des 2 et des 4 sur les cases vides de la grille
-
+    void mouvement_haut();
+    void mouvement_bas();
+    void mouvement_droit();
+    void mouvement_gauche();
 
 private :
     int L;

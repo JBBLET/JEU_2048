@@ -90,3 +90,79 @@ void damier::random(){
 
     }
 }
+void damier::mouvement_haut(){
+    for (int j=0;j<L;j++){
+         int i=0,k=0,val=0;
+         while(i<L){
+             while(T[i][j]==0){
+                 i++;
+             }
+             if(T[i][j]==val){
+                 T[k-1][j]=2*val;
+                 val=0;
+                 T[i][j]=0;
+             }
+             T[k][j]=T[i][j];
+             val=T[i][j];
+             if(k!=i){T[i][j]=0;}
+             k++;
+         }
+    }
+}
+void damier::mouvement_bas(){
+    for (int j=L;j>-1;j--){
+         int i=L,k=L,val=0;
+         while(i>-1){
+             while(T[i][j]==0){
+                 i--;
+             }
+             if(T[i][j]==val){
+                 T[k+1][j]=2*val;
+                 val=0;
+                 T[i][j]=0;
+             }
+             T[k][j]=T[i][j];
+             val=T[i][j];
+             if(k!=i){T[i][j]=0;}
+             k--;
+         }
+    }
+}
+void damier::mouvement_gauche(){
+    for (int i=0;i<L;i++){
+         int j=0,k=0,val=0;
+         while(j<L){
+             while(T[i][j]==0){
+                 j++;
+             }
+             if(T[i][j]==val){
+                 T[i][k-1]=2*val;
+                 val=0;
+                 T[i][j]=0;
+             }
+             T[k][j]=T[i][j];
+             val=T[i][j];
+             if(k!=j){T[i][j]=0;}
+             k++;
+         }
+    }
+}
+void damier::mouvement_droit(){
+    for (int i=L;i>-1;i--){
+         int j=L,k=L,val=0;
+         while(j>-1){
+             while(T[i][j]==0){
+                 j--;
+             }
+             if(T[i][j]==val){
+                 T[i][k+1]=2*val;
+                 val=0;
+                 T[i][j]=0;
+             }
+             T[k][j]=T[i][j];
+             val=T[i][j];
+             if(k!=j){T[i][j]=0;}
+             k--;
+         }
+    }
+}
