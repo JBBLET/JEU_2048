@@ -90,7 +90,7 @@ void damier::random(){
         }
 
     }
-    damierChanged();
+    emit damierChanged();
 }
 void damier::mouvement_haut(){
     for (int j=0;j<L;j++){
@@ -110,7 +110,7 @@ void damier::mouvement_haut(){
              k++;
          }
     }
-    damierChanged();
+    emit damierChanged();
 }
 void damier::mouvement_bas(){
     for (int j=L;j>-1;j--){
@@ -130,7 +130,7 @@ void damier::mouvement_bas(){
              k--;
          }
     }
-    damierChanged();
+    emit damierChanged();
 }
 void damier::mouvement_gauche(){
     for (int i=0;i<L;i++){
@@ -150,7 +150,7 @@ void damier::mouvement_gauche(){
              k++;
          }
     }
-    damierChanged();
+    emit damierChanged();
 }
 void damier::mouvement_droit(){
     for (int i=L;i>-1;i--){
@@ -170,9 +170,13 @@ void damier::mouvement_droit(){
              k--;
          }
     }
-    damierChanged();
+    emit damierChanged();
 }
 
 QString damier::readDamier(){
     return QString::number(T[1][1]);
+}
+
+void damier::damierChanged(){
+
 }

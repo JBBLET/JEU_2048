@@ -1,6 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include<QtQml>
+#include <QtQml>
+#include <QQmlContext>
 #include <QObject>
 #include "damier.h"
 
@@ -19,7 +20,7 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
 
-    engine.rootContext()->setContextProperty("vueObjetCpt", &D);
+    engine.rootContext()->setContextProperty("vueObjetCpt", D.readDamier());
     engine.load(url);
     return app.exec();
 

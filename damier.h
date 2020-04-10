@@ -19,7 +19,7 @@ public :
     // void mouvement_bas();
     void mouvement_droit();
     void mouvement_gauche();
-    void damierChanged();
+
     QString readDamier();
     Q_PROPERTY(QString caseQML READ readDamier NOTIFY damierChanged)
     Q_INVOKABLE void mouvement_haut();
@@ -33,6 +33,8 @@ private :
     void alloc(int taille);
     void free();
 
+signals :
+    void damierChanged();
 
 
 };
