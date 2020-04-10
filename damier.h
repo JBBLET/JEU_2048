@@ -5,9 +5,11 @@
 #include <stdlib.h>
 #include <time.h>
 #include <QObject>
+#include <QtQml>
+#include <QQmlContext>
 using namespace std;
 
-class damier
+class damier : public QObject
 {
 public :
     damier(int l);
@@ -20,8 +22,8 @@ public :
     void mouvement_droit();
     void mouvement_gauche();
 
-    QString readDamier();
-    Q_PROPERTY(QString caseQML READ readDamier NOTIFY damierChanged)
+    QString readDamier1();
+    Q_PROPERTY(QString case1QML READ readDamier1 NOTIFY damierChanged)
     Q_INVOKABLE void mouvement_haut();
     Q_INVOKABLE void mouvement_bas();
 
@@ -32,6 +34,7 @@ private :
 
     void alloc(int taille);
     void free();
+
 
 signals :
     void damierChanged();

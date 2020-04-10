@@ -1,184 +1,98 @@
 import QtQuick 2.12
 import QtQuick.Window 2.12
 
+
 Window {
     visible: true
-    width: 640
-    height: 480
+    width: 400
+    height: 470
     title: qsTr("Jeu 2048")
+    Keys.onPressed:{
+        switch(event.key){
+            case Qt.Key_Up:
+                vueObjetCpt.random();
+            break;
+        }
+    }
 
     Rectangle {
         id: rectangle
         color: "#ebb3a9"
         anchors.fill: parent
 
+
+    }
+
+
         Text {
             id: element
-            x: 265
-            width: 110
-            height: 26
+            x: 50
+            width: 300
+            height: 64
             color: "#2a211e"
             text: qsTr("2048")
+            verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             anchors.top: parent.top
             anchors.topMargin: 0
-            font.pixelSize: 25
+            font.pixelSize: 43
         }
 
         Grid {
             id: grid
-            x: 129
-            y: 51
-            width: 336
-            height: 351
+            x: 50
+            y: 91
+            width: 300
+            height: 303
             columns : 3
 
-
-            Rectangle {
-                id: rectangle2
-                width: 112
-                height: 117
-                color: "#ffffff"
-
-                Text {
-                    id: element2
-                    text: qsTr("Text")
-                    anchors.fill: parent
-                    font.pixelSize: 12
-                }
+            MaCase {
+                id: maCase1
+                elementText: vueObjetCpt.case1QML ;
             }
 
-            Rectangle {
-                id: rectangle3
-                width: 112
-                height: 117
-                color: "#ffffff"
-
-                Text {
-                    id: element3
-                    x: -112
-                    y: 0
-                    text: qsTr("Text")
-                    font.pixelSize: 12
-                    anchors.fill: parent
-                }
+            MaCase {
+                id: maCase2
+                elementText: "n2"
             }
 
-            Rectangle {
-                id: rectangle9
-                width: 112
-                height: 117
-                color: "#ffffff"
 
-                Text {
-                    id: element6
-                    x: 336
-                    y: -117
 
-                    font.pixelSize: 12
-                    anchors.fill: parent
-                    text : vueObjetCpt.cptQML
-                    Keys.onPressed:{
-                        switch(event.key){
-                        case Qt.Key_Up: vueObjetCpt.mouvement_haut();
-                            break;
-                        case Qt.Key_Down: vueObjetCpt.mouvement_bas();
-                            break;
-                        }
-                    }
-                }
 
+
+
+            MaCase {
+                id: maCase3
+                elementText: qsTr("n3")
             }
 
-            Rectangle {
-                id: rectangle10
-                width: 112
-                height: 117
-                color: "#ffffff"
-                Text {
-                    id: element7
-                    x: 336
-                    y: -117
-                    text: vueObjetCpt.cptQML
-                    font.pixelSize: 12
-                    anchors.fill: parent
-                }
+            MaCase {
+                id: maCase4
+                elementText: qsTr("n4")
+            }
+            MaCase {
+                id: maCase5
+                elementText: qsTr("n5")
+            }
+            MaCase {
+                id: maCase6
+                elementText: qsTr("n6")
+            }
+            MaCase {
+                id: maCase9
+                elementText: "n9"
+            }
+            MaCase {
+                id: maCase8
+                elementText: qsTr("n8")
             }
 
-            Rectangle {
-                id: rectangle11
-                width: 112
-                height: 117
-                color: "#ffffff"
-                Text {
-                    id: element8
-                    x: 336
-                    y: -117
-                    text: vueObjetCpt.cptQML
-                    font.pixelSize: 12
-                    anchors.fill: parent
-                }
-            }
-
-            Rectangle {
-                id: rectangle12
-                width: 112
-                height: 117
-                color: "#ffffff"
-                Text {
-                    id: element9
-                    x: 336
-                    y: -117
-                    text: vueObjetCpt.cptQML
-                    font.pixelSize: 12
-                    anchors.fill: parent
-                }
-            }
-
-            Rectangle {
-                id: rectangle13
-                width: 112
-                height: 117
-                color: "#ffffff"
-                Text {
-                    id: element10
-                    x: 336
-                    y: -117
-                    text: vueObjetCpt.cptQML
-                    font.pixelSize: 12
-                    anchors.fill: parent
-                }
-            }
-
-            Rectangle {
-                id: rectangle14
-                width: 112
-                height: 117
-                color: "#ffffff"
-                Text {
-                    id: element11
-                    x: 336
-                    y: -117
-                    text: vueObjetCpt.cptQML
-                    font.pixelSize: 12
-                    anchors.fill: parent
-                }
-            }
-
-        Rectangle {
-            id: rectangle15
-            width: 112
-            height: 117
-            color: "#ffffff"
-            Text {
-                id: element12
-                x: 336
-                y: -117
-                text: vueObjetCpt.cptQML
-                font.pixelSize: 12
-                anchors.fill: parent
+            MaCase {
+                id: maCase7
+                elementText: qsTr("n7")
             }
         }
+
+
     }
-}
-}
+

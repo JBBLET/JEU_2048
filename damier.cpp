@@ -2,6 +2,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
+#include <QtQml>
+#include <QQmlContext>
 #include <QObject>
 using namespace std;
 
@@ -14,6 +16,7 @@ damier::damier(int l)
             T[i][j]=0;
         }
     }
+    emit damierChanged();
 }
 
 void damier::alloc(int taille){
@@ -56,6 +59,7 @@ void damier::random(){
                 nbz++;
             }
         }
+
 
     }
 
@@ -173,8 +177,8 @@ void damier::mouvement_droit(){
     emit damierChanged();
 }
 
-QString damier::readDamier(){
-    return QString::number(T[1][1]);
+QString damier::readDamier1(){
+    return QString::number(T[0][0]);
 }
 
 void damier::damierChanged(){

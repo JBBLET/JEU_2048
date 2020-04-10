@@ -7,6 +7,10 @@
 
 int main(int argc, char *argv[])
 {
+    //Réinitialisation de la séquence aléatoire
+    srand (time(NULL));
+
+
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
@@ -20,11 +24,12 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
 
-    engine.rootContext()->setContextProperty("vueObjetCpt", D.readDamier());
+    engine.rootContext()->setContextProperty("vueObjetCpt", &D);
     engine.load(url);
     return app.exec();
 
     D.~damier();
+
 
 
 }
