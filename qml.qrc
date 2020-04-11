@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>MaCase.qml</file>
+        <file>Damier.qml</file>
     </qresource>
 </RCC>
