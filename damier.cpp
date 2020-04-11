@@ -2,9 +2,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <time.h>
-#include <QtQml>
-#include <QQmlContext>
-#include <QObject>
+
 using namespace std;
 
 damier::damier(int l)
@@ -16,23 +14,24 @@ damier::damier(int l)
             T[i][j]=0;
         }
     }
-    emit damierChanged();
-}
 
+}
+damier::damier(damier &D)
+{
+    int longueur=D.L;
+    alloc(longueur);
+
+    for (int i=0;i<longueur;i++){
+        for (int j=0;j<longueur;j++){
+            T[i][j]=D.T[i][j];
+        }
+    }
+}
 void damier::alloc(int taille){
     L = taille;
     T = new int*[L];
     for(int i=0; i<L; i++)
         T[i] = new int[L];
-}
-
-void damier::print(){
-    cout << endl;
-    for(int i=0; i<L; i++) {
-        cout << endl;
-        for(int j=0; j<L; j++)
-            cout << T[i][j] << ", ";
-    }
 }
 
 damier::~damier(){
@@ -94,7 +93,7 @@ void damier::random(){
         }
 
     }
-    emit damierChanged();
+
 }
 void damier::mouvement_haut(){
     for (int j=0;j<L;j++){
@@ -114,7 +113,7 @@ void damier::mouvement_haut(){
              k++;
          }
     }
-    emit damierChanged();
+
 }
 void damier::mouvement_bas(){
     for (int j=L;j>-1;j--){
@@ -134,7 +133,7 @@ void damier::mouvement_bas(){
              k--;
          }
     }
-    emit damierChanged();
+
 }
 void damier::mouvement_gauche(){
     for (int i=0;i<L;i++){
@@ -154,7 +153,7 @@ void damier::mouvement_gauche(){
              k++;
          }
     }
-    emit damierChanged();
+
 }
 void damier::mouvement_droit(){
     for (int i=L;i>-1;i--){
@@ -174,13 +173,17 @@ void damier::mouvement_droit(){
              k--;
          }
     }
-    emit damierChanged();
-}
-
-QString damier::readDamier1(){
-    return QString::number(T[0][0]);
-}
-
-void damier::damierChanged(){
 
 }
+
+void damier::print(){
+    cout << endl;
+    for(int i=0; i<L; i++) {
+        cout << endl;
+        for(int j=0; j<L; j++)
+            cout << T[i][j] << ", ";
+    }
+}
+
+
+
