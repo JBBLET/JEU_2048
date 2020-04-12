@@ -15,6 +15,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         damier.cpp \
+        jeu.cpp \
         main.cpp
 
 RESOURCES += qml.qrc
@@ -31,7 +32,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    damier.h
+    damier.h \
+    jeu.h
 
 DISTFILES += \
-    MaCase.qml
+    Case.qml
