@@ -1,6 +1,8 @@
 import QtQuick 2.0
 
 Item {
+    property alias valueVisible: value.visible
+    property alias valueText: value.text
     Rectangle {
         id: rectangle
         x: 220
