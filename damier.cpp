@@ -16,6 +16,15 @@ damier::damier(int l)
     }
 
 }
+damier::damier()
+{
+    alloc(4);
+    for (int i=0;i<L;i++){
+        for (int j=0;j<L;j++){
+            T[i][j]=0;
+        }
+    }
+}
 damier::damier(damier &D)
 {
     int longueur=D.L;
@@ -48,6 +57,17 @@ void damier::free(){
     delete [] T;
 }
 
+void damier::resize(int Taille)
+{
+    free();
+    alloc(Taille);
+    for (int i=0;i<L;i++){
+        for (int j=0;j<L;j++){
+            T[i][j]=0;
+        }
+    }
+
+}
 void damier::random(){
 
     //On compte le nombre de zéros
@@ -184,6 +204,32 @@ void damier::print(){
             cout << T[i][j] << ", ";
     }
 }
-
+int damier::get_value(int index){
+    return T[index/L][index%L];
+}
+bool damier::peut_bouger()
+{
+    for(int i=0;i<L-1;i++){
+        for(int j=0;j<L-1;j++){
+            if(T[i+1][j]!=T[i][j]||T[i][j]==0){return true;}
+            if(T[i][j+1]!=T[i][j]||T[i][j]==0){return true;}
+        }
+     }
+    for(int i=0;i<L-1;i++){
+        if(T[i+1][L-1]!=T[i][L-1]||T[i][L-1]==0){return true;}
+        if(T[L-1][i+1]!=T[L-1][i]||T[L-1][i]==0){return true;}
+    }
+    return false;
+}
+int damier::sum()
+{
+    int somme=0;
+    for(int i=0;i<L;i++){
+        for(int j=0;j<L;j++){
+            somme+=T[i][j];
+        }
+    }
+    return somme;
+}
 
 
