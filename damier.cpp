@@ -116,83 +116,152 @@ void damier::random(){
 
 }
 void damier::mouvement_haut(){
-    for (int j=0;j<L;j++){
-         int i=0,k=0,val=0;
-         while(i<L){
-             while(T[i][j]==0){
-                 i++;
-             }
-             if(T[i][j]==val){
-                 T[k-1][j]=2*val;
-                 val=0;
-                 T[i][j]=0;
-             }
-             T[k][j]=T[i][j];
-             val=T[i][j];
-             if(k!=i){T[i][j]=0;}
-             k++;
-         }
+    for (int i=1;i<L;i++){
+        for(int j=0;j<L;j++){
+            int valeur=T[i][j];
+            if (valeur != 0){
+                int compteur=1;
+                bool continuer=true;
+
+                while(compteur<=i && continuer){
+
+                    if (T[i-compteur][j]==0){
+                        T[i-compteur][j]=valeur;
+                        T[i-compteur+1][j]=0;
+                        compteur=compteur+1;
+                        // cout<<"remontee";
+
+                    }
+                    else if (T[i-compteur][j]==valeur){
+                        T[i-compteur][j]=2*valeur;
+                        T[i-compteur+1][j]=0;
+                        continuer=false;
+                        // cout<<"fusion";
+                    }
+                     else if (T[i-compteur][j]!=valeur||T[i-compteur][j]!=0){
+                        continuer=false;
+                        // cout<<"fin";
+                    }
+
+
+                }
+            }
+        }
+
     }
+    random();
+
 
 }
 void damier::mouvement_bas(){
-    for (int j=L;j>-1;j--){
-         int i=L,k=L,val=0;
-         while(i>-1){
-             while(T[i][j]==0){
-                 i--;
-             }
-             if(T[i][j]==val){
-                 T[k+1][j]=2*val;
-                 val=0;
-                 T[i][j]=0;
-             }
-             T[k][j]=T[i][j];
-             val=T[i][j];
-             if(k!=i){T[i][j]=0;}
-             k--;
-         }
+    for (int i=L-2;i>=0;i--){
+        for(int j=L-1;j>=0;j--){
+            int valeur=T[i][j];
+            if (valeur != 0){
+                int compteur=1;
+                bool continuer=true;
+
+                while(compteur<=L-i-1 && continuer){
+
+                    if (T[i+compteur][j]==0){
+                        T[i+compteur][j]=valeur;
+                        T[i+compteur-1][j]=0;
+                        compteur=compteur+1;
+                        // cout<<"descente";
+
+                    }
+                    else if (T[i+compteur][j]==valeur){
+                        T[i+compteur][j]=2*valeur;
+                        T[i+compteur-1][j]=0;
+                        continuer=false;
+                        // cout<<"fusion";
+                    }
+                     else if (T[i+compteur][j]!=valeur||T[i+compteur][j]!=0){
+                        continuer=false;
+                        // cout<<"fin";
+                    }
+
+
+                }
+            }
+        }
+
     }
+    random();
 
 }
 void damier::mouvement_gauche(){
-    for (int i=0;i<L;i++){
-         int j=0,k=0,val=0;
-         while(j<L){
-             while(T[i][j]==0){
-                 j++;
-             }
-             if(T[i][j]==val){
-                 T[i][k-1]=2*val;
-                 val=0;
-                 T[i][j]=0;
-             }
-             T[k][j]=T[i][j];
-             val=T[i][j];
-             if(k!=j){T[i][j]=0;}
-             k++;
-         }
+    for (int j=1;j<L;j++){
+        for(int i=0;i<L;i++){
+            int valeur=T[i][j];
+            if (valeur != 0){
+                int compteur=1;
+                bool continuer=true;
+
+                while(compteur<=j && continuer){
+
+                    if (T[i][j-compteur]==0){
+                        T[i][j-compteur]=valeur;
+                        T[i][j-compteur+1]=0;
+                        compteur=compteur+1;
+                        // cout<<"remontee";
+
+                    }
+                    else if (T[i][j-compteur]==valeur){
+                        T[i][j-compteur]=2*valeur;
+                        T[i][j-compteur+1]=0;
+                        continuer=false;
+                        // cout<<"fusion";
+                    }
+                     else if (T[i][j-compteur]!=valeur||T[i][j-compteur]!=0){
+                        continuer=false;
+                        // cout<<"fin";
+                    }
+
+
+                }
+            }
+        }
+
     }
+    random();
 
 }
 void damier::mouvement_droit(){
-    for (int i=L;i>-1;i--){
-         int j=L,k=L,val=0;
-         while(j>-1){
-             while(T[i][j]==0){
-                 j--;
-             }
-             if(T[i][j]==val){
-                 T[i][k+1]=2*val;
-                 val=0;
-                 T[i][j]=0;
-             }
-             T[k][j]=T[i][j];
-             val=T[i][j];
-             if(k!=j){T[i][j]=0;}
-             k--;
-         }
+    for (int j=L-2;j>=0;j--){
+        for(int i=L-1;i>=0;i--){
+            int valeur=T[i][j];
+            if (valeur != 0){
+                int compteur=1;
+                bool continuer=true;
+
+                while(compteur<=L-j-1 && continuer){
+
+                    if (T[i][j+compteur]==0){
+                        T[i][j+compteur]=valeur;
+                        T[i][j+compteur-1]=0;
+                        compteur=compteur+1;
+                        // cout<<"descente";
+
+                    }
+                    else if (T[i][j+compteur]==valeur){
+                        T[i][j+compteur]=2*valeur;
+                        T[i][j+compteur-1]=0;
+                        continuer=false;
+                        // cout<<"fusion";
+                    }
+                     else if (T[i][j+compteur]!=valeur||T[i][j+compteur]!=0){
+                        continuer=false;
+                        // cout<<"fin";
+                    }
+
+
+                }
+            }
+        }
+
     }
+    random();
 
 }
 

@@ -64,22 +64,7 @@ Window {
                  }
                 }
 
-                Keys.onPressed: {
-                    switch (event.key) {
-                    case Qt.Key_Up:
-                        vueObjetGame.mouvement_haut();
-                        break;
-                    case Qt.Key_Down:
-                        vueObjetGame.mouvement_bas();
-                        break;
-                    case Qt.Key_Right:
-                        vueObjetGame.mouvement_droit();
-                        break;
-                    case Qt.Key_Left:
-                        vueObjetGame.mouvement_gauche();
-                        break;
-                    }
-                }
+
             }
         }
 
@@ -176,6 +161,36 @@ Window {
             anchors.right: parent.right
             anchors.rightMargin: 20
             focus: true
+            Keys.onPressed: {
+                //switch (event.key) {
+                //case Qt.Key_Up:
+                //    vueObjetGame.mouvement_haut();
+                //    break;
+                //case Qt.Key_Down:
+                //    vueObjetGame.mouvement_bas();
+                //    break;
+                //case Qt.Key_Right:
+                //    vueObjetGame.mouvement_droit();
+                //    break;
+                //case Qt.Key_Left:
+                //    vueObjetGame.mouvement_gauche();
+                //    break;
+                //}
+                if (event.key===Qt.Key_Up){console.log('Key up was pressed');
+                    vueObjetGame.mouvement_haut();
+                event.accepted = true;}
+                if (event.key===Qt.Key_Down){vueObjetGame.mouvement_bas();
+                console.log('Key down was pressed');
+                event.accepted = true;}
+                if (event.key===Qt.Key_Right){vueObjetGame.mouvement_droit();
+                console.log('Key right was pressed');
+                event.accepted = true;}
+                if (event.key===Qt.Key_Left){vueObjetGame.mouvement_gauche();
+                console.log('Key left was pressed');
+                event.accepted = true;}
+
+
+            }
 
             MouseArea {
                 id: mouseArea

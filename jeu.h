@@ -37,7 +37,7 @@ private slots:
 private:
 
     QList<QString> valeurs={QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0),QString::number(0)};
-    QList<bool> visibilite={true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true};
+    QList<bool> visibilite={false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false};
     QString ecrit_case;
     // QString *valeur_pointee=NULL;
     bool jeuOn;

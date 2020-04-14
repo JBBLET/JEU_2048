@@ -7,7 +7,7 @@ Jeu::Jeu(QObject *parent): QObject(parent)
 {
     Taille=4;
     jeuOn=false;
-    gameChanged();
+    emit gameChanged();
 }
 
 void Jeu::start_jeu(QString L="4")
@@ -16,7 +16,7 @@ void Jeu::start_jeu(QString L="4")
     Taille=nouvelle_taille;
     partie.random();
     jeuOn=true;
-    gameChanged();
+    emit gameChanged();
 }
 QList<QString> Jeu::read_damier()
 {
@@ -55,8 +55,8 @@ QList<bool> Jeu::read_visibilite()
 {   int t = Taille*Taille;
     for (int i=0;i<t;i++)
     {
-        //if(partie.get_value(i)==0){ visibilite[i]=false;}
-        visibilite[i]=true;
+        if(partie.get_value(i)==0){ visibilite[i]=false;}
+        else {visibilite[i]=true;};
         }
     return visibilite;
 }
