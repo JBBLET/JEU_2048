@@ -43,14 +43,21 @@ Window {
 
             Grid {
                 id: grid
+                anchors.fill: parent
                 rows: taillechoisieText*1
                 columns: taillechoisieText*1
-                anchors.fill: parent
+
 
                 Repeater {
+                    width: parent.width
+                    height : parent.height
                     model: grid.columns*grid.rows;
 
                   Case {
+                      //width: parent.width/taillechoisie
+                      //height : parent.height/taillechoisie
+                      width: grid.width/grid.collumns
+                      height: grid.height/grid.rows
                       id: essai
                       valueText: vueObjetGame.valeur[index]
                       valueVisible: vueObjetGame.est_visible[index]
@@ -198,7 +205,8 @@ Window {
 Designer {
     D{i:4;anchors_height:400;anchors_width:400;anchors_x:0;anchors_y:0}D{i:3;anchors_height:410;anchors_width:410;anchors_x:384;anchors_y:260}
 D{i:8;anchors_x:48;anchors_y:23}D{i:9;anchors_x:48;anchors_y:23}D{i:11;anchors_x:48;anchors_y:9}
-D{i:12;anchors_width:80;anchors_x:20;anchors_y:9}D{i:10;anchors_x:48}D{i:15;anchors_height:100;anchors_width:100;anchors_x:41;anchors_y:30}
-D{i:14;anchors_height:100;anchors_width:100;anchors_x:12;anchors_y:8}D{i:13;anchors_width:80;anchors_x:20}
+D{i:13;anchors_width:80;anchors_x:20}D{i:12;anchors_width:80;anchors_x:20;anchors_y:9}
+D{i:10;anchors_x:48}D{i:15;anchors_height:100;anchors_width:100;anchors_x:41;anchors_y:30}
+D{i:14;anchors_height:100;anchors_width:100;anchors_x:12;anchors_y:8}
 }
 ##^##*/

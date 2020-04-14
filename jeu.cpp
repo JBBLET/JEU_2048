@@ -8,7 +8,6 @@ Jeu::Jeu(QObject *parent): QObject(parent)
     Taille=4;
     jeuOn=false;
     gameChanged();
-
 }
 
 void Jeu::start_jeu(QString L="4")
@@ -21,23 +20,47 @@ void Jeu::start_jeu(QString L="4")
 }
 QList<QString> Jeu::read_damier()
 {
-    QList<QString> valeurs;
-    for (int i=0;i<Taille;i++)
+    int t=Taille*Taille;
+    for (int i=0;i<t;i++)
     {
-        valeurs.append(QString::number(partie.get_value(i)));
+        valeurs[i]=QString::number(partie.get_value(i));
     }
+    //for (int i=0;i<Taille;i++)
+    //{
+    //    if(partie.get_value(i)==0){ valeurs[i]=' ';}
+
+    //    }
     return valeurs;
 }
+
+//QString Jeu::read_damier2()
+//{
+//    return *valeur_pointee;
+//}
+
+//void Jeu::set_damier2(int i){
+//    valeur_pointee = partie.get_pointeur(i);
+//    emit gameChanged();
+//}
+
+QString Jeu::read_damier3(){
+    return ecrit_case;
+}
+
+void Jeu::set_damier3(int index){
+    ecrit_case=partie.get_value(index);
+}
+
 QList<bool> Jeu::read_visibilite()
-{
-    QList<bool> visibilite;
-    for (int i=0;i<Taille;i++)
+{   int t = Taille*Taille;
+    for (int i=0;i<t;i++)
     {
-        if(partie.get_value(i)==0){ visibilite.append(false);}
-        else {visibilite.append(true);}
+        //if(partie.get_value(i)==0){ visibilite[i]=false;}
+        visibilite[i]=true;
         }
     return visibilite;
 }
+
 bool Jeu::test_win()
 {
     for(int i=0;i<Taille;i++){
@@ -64,27 +87,27 @@ void Jeu::mouvement_bas()
 {if(jeuOn){
     partie.mouvement_bas();
     test_lose();
-    gameChanged();
+    emit gameChanged();
     }
 }
 void Jeu::mouvement_haut()
 {if(jeuOn){
     partie.mouvement_haut();
     test_lose();
-    gameChanged();
+    emit gameChanged();
     }
 }
 void Jeu::mouvement_droit()
 {if(jeuOn){
     partie.mouvement_droit();
     test_lose();
-    gameChanged();
+    emit gameChanged();
     }
 }
 void Jeu::mouvement_gauche()
 {if(jeuOn){
     partie.mouvement_gauche();
     test_lose();
-    gameChanged();
+    emit gameChanged();
     }
 }

@@ -207,6 +207,11 @@ void damier::print(){
 int damier::get_value(int index){
     return T[index/L][index%L];
 }
+
+//int* damier::get_pointeur(int index){
+//    return &T[index/L][index%L];
+//}
+
 bool damier::peut_bouger()
 {
     for(int i=0;i<L-1;i++){
