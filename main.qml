@@ -53,15 +53,33 @@ Window {
                     height : parent.height
                     model: grid.columns*grid.rows;
 
-                  Case {
-                      //width: parent.width/taillechoisie
-                      //height : parent.height/taillechoisie
-                      width: grid.width/grid.collumns
-                      height: grid.height/grid.rows
-                      id: essai
-                      valueText: vueObjetGame.valeur[index]
-                      valueVisible: vueObjetGame.est_visible[index]
-                 }
+                    Rectangle {
+                        id: rectanglecase
+                        width: grid.width/grid.columns
+                        height: grid.height/grid.rows
+                        color: "#00000000"
+                        border.width: 43
+                        border.color: "#000000"
+
+                        Rectangle {
+                            id: rectangle1
+                            color: "#ead4b7"
+                            radius: 12
+                            border.width: 3
+                            anchors.fill: parent
+                            visible: true
+
+                            Text {
+                                id: value
+                                text: vueObjetGame.valeur[index]
+                                verticalAlignment: Text.AlignVCenter
+                                horizontalAlignment: Text.AlignHCenter
+                                visible: vueObjetGame.est_visible[index]
+                                anchors.fill: parent
+                                font.pixelSize: 17
+                            }
+                        }
+                    }
                 }
 
 
