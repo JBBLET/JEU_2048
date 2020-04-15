@@ -108,7 +108,7 @@ void damier::random(){
             }
             if (compteur-1==v1){
                 T[i][j]=valeur;
-                compteur=L^2+10;
+                compteur=L^2+100000;
             }
         }
 
