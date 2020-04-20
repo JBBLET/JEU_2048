@@ -10,7 +10,6 @@ Window {
     property alias scoreText: score.text
     title: qsTr("Jeu 2048")
 
-
     Rectangle {
         id: rectangle
         color: "#ebb3a9"
@@ -165,10 +164,11 @@ Window {
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 5
                 font.pixelSize: 12
-                validator: IntValidator{bottom: 3; top: 15;}
+                validator: IntValidator{bottom: 3; top: 5;}
             }
         }
-
+        FocusScope{
+            id:fakefocus
         Rectangle {
             id: rectanglestart
             x: 460
@@ -210,6 +210,7 @@ Window {
 
             }
 
+
             MouseArea {
                 id: mouseArea
                 anchors.fill: parent
@@ -224,6 +225,7 @@ Window {
                     anchors.fill: parent
                     font.pixelSize: 12
                 }
+            }
             }
         }
 
