@@ -25,23 +25,10 @@ QList<QString> Jeu::read_damier()
     {
         valeurs[i]=QString::number(partie.get_value(i));
     }
-    //for (int i=0;i<Taille;i++)
-    //{
-    //    if(partie.get_value(i)==0){ valeurs[i]=' ';}
 
-    //    }
     return valeurs;
 }
 
-//QString Jeu::read_damier2()
-//{
-//    return *valeur_pointee;
-//}
-
-//void Jeu::set_damier2(int i){
-//    valeur_pointee = partie.get_pointeur(i);
-//    emit gameChanged();
-//}
 
 QString Jeu::read_damier3(){
     return ecrit_case;
@@ -75,6 +62,7 @@ void Jeu::test_lose()
 {
     if(!partie.peut_bouger()){
         jeuOn=false;
+        partie.resize(Taille);
     }
 
 }
@@ -84,30 +72,33 @@ QString Jeu::calcul_score()
     return QString::number(partie.sum());
 }
 void Jeu::mouvement_bas()
-{if(jeuOn){
+{   test_lose();
+    if(jeuOn){
     partie.mouvement_bas();
-    test_lose();
     emit gameChanged();
     }
 }
 void Jeu::mouvement_haut()
-{if(jeuOn){
+{   test_lose();
+    if(jeuOn){
     partie.mouvement_haut();
-    test_lose();
+
     emit gameChanged();
     }
 }
 void Jeu::mouvement_droit()
-{if(jeuOn){
+{   test_lose();
+    if(jeuOn){
     partie.mouvement_droit();
-    test_lose();
+
     emit gameChanged();
     }
 }
 void Jeu::mouvement_gauche()
-{if(jeuOn){
+{       test_lose();
+    if(jeuOn){
     partie.mouvement_gauche();
-    test_lose();
+
     emit gameChanged();
     }
 }

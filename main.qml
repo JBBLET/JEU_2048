@@ -153,6 +153,7 @@ Window {
                 id: taillechoisie
                 y: 32
                 height: 20
+                onAccepted: rectanglestart.forceActiveFocus();
                 text: qsTr("4")
                 mouseSelectionMode: TextInput.SelectWords
                 verticalAlignment: Text.AlignVCenter
@@ -167,8 +168,6 @@ Window {
                 validator: IntValidator{bottom: 3; top: 5;}
             }
         }
-        FocusScope{
-            id:fakefocus
         Rectangle {
             id: rectanglestart
             x: 460
@@ -227,7 +226,7 @@ Window {
                 }
             }
             }
-        }
+
 
     }
 
